@@ -62,11 +62,12 @@ Llama 3.2 Grounded Answer
 MLflow Monitoring
         ↓
 Streamlit Dashboard
-
+```
 
 ---
 
-#Technologies Used
+# Technologies Used
+```text
 Python 3.10
 pandas
 spaCy
@@ -82,25 +83,188 @@ Ollama
 Llama 3.2
 MLflow
 Streamlit
+```
 
 ---
 
 ## Installation
-# 1. Clone the repository
+1. Clone the repository
+```text
 git clone https://github.com/Wilover/CSIT370-cyber-youtube-little-llm.git
 cd CSIT370-cyber-youtube-little-llm
-# 2. Create a virtual environment
+```
+2. Create a virtual environment
+```text
 py -3.10 -m venv cyber_env
-# 3. Activate the environment
+```
+3. Activate the environment
+```text
 .\cyber_env\Scripts\Activate.ps1
+```
 If PowerShell blocks activation:
+```text
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\cyber_env\Scripts\Activate.ps1
-# 4. Install dependencies
+```
+4. Install dependencies
+```text
 pip install -r requirements.txt
-# 5. Download the spaCy model
+```
+5. Download the spaCy model
+```text
 python -m spacy download en_core_web_sm
-# 6. Install and prepare Ollama
+```
+6. Install and prepare Ollama
+```text
 https://ollama.com
 Then pull Llama 3.2:
 ollama pull llama3.2:3b
+```
+
+---
+
+# Running the Pipeline
+
+## The project is controlled from run.py.
+
+Edit the MODE variable:
+
+MODE = "full_build"
+
+Available modes:
+```text
+MODE = "preprocess"
+MODE = "ner"
+MODE = "sentiment"
+MODE = "emotion"
+MODE = "topic"
+MODE = "index"
+MODE = "agent_demo"
+MODE = "full_build"
+MODE = "full_demo"
+```
+Run:
+```text
+python -B run.py
+Recommended first run
+MODE = "full_build"
+```
+This runs:
+```text
+Preprocessing
+→ NER
+→ Sentiment
+→ Emotion
+→ Topic Modeling
+→ FAISS Index
+```
+Then use:
+```text
+MODE = "full_demo"
+```
+to run the Agentic RAG demo.
+
+---
+
+# Running the Dashboard
+
+The Streamlit dashboard is the main user interaction point.
+```text
+python -m streamlit run src/dashboard.py
+```
+The dashboard includes:
+```text
+Question box
+Agentic RAG answer panel
+Evidence viewer
+Sentiment charts
+Emotion charts
+Topic distribution
+Dataset preview
+Optional MLflow logging
+```
+---
+
+# Running MLflow
+```text
+mlflow ui --host 127.0.0.1 --port 5000 --workers 1
+```
+Open:
+```text
+http://127.0.0.1:5000
+```
+MLflow tracks:
+        User question
+        Agent route
+        Retrieval scores
+        Evidence count
+        Answer length
+        Faithfulness overlap
+        Latency
+        LLM model
+        Retrieved evidence
+        Generated answer
+
+---
+
+# Example Questions
+```text
+What cybersecurity certifications do students recommend?
+What cybersecurity tools are students discussing?
+What are students concerned about in AI security?
+Which topics receive the most negative reactions?
+Summarize the discussion about ethical hacking.
+What do students say about prompt injection?
+```
+---
+
+# Example Workflow
+```text
+User question:
+"What cybersecurity certifications do students recommend?"
+
+LangGraph supervisor:
+routes query to rag_agent
+
+Retriever:
+finds relevant YouTube comments
+
+Generator:
+Llama 3.2 creates a grounded answer
+
+Output:
+answer + source comments + confidence + MLflow trace
+```
+
+---
+
+
+# Evaluation and Monitoring
+```text
+The project uses MLflow to monitor the RAG and agentic workflow.
+
+Evaluation includes:
+
+Retrieval quality
+Average retrieval score
+Maximum retrieval score
+Minimum retrieval score
+Evidence count
+Faithfulness overlap
+Answer length
+Generation latency
+Total latency
+Route tracking
+Dataset summary logging
+```
+
+---
+
+# Limitations
+```text
+The dataset is based on YouTube comments, which are noisy and informal.
+Some cybersecurity terms may be missed if they are not included in the custom lexicon.
+General-purpose NER may misclassify cybersecurity-specific entities.
+Emotion models trained on social media may produce imperfect labels for technical comments.
+The system answers only from retrieved dataset evidence and does not verify facts externally.
+```
