@@ -62,3 +62,45 @@ Llama 3.2 Grounded Answer
 MLflow Monitoring
         ↓
 Streamlit Dashboard
+
+
+---
+
+#Technologies Used
+Python 3.10
+pandas
+spaCy
+langdetect
+emoji
+Hugging Face Transformers
+SentenceTransformers
+BERTopic
+FAISS
+LangChain
+LangGraph
+Ollama
+Llama 3.2
+MLflow
+Streamlit
+
+---
+
+## Installation
+# 1. Clone the repository
+git clone https://github.com/Wilover/CSIT370-cyber-youtube-little-llm.git
+cd CSIT370-cyber-youtube-little-llm
+# 2. Create a virtual environment
+py -3.10 -m venv cyber_env
+# 3. Activate the environment
+.\cyber_env\Scripts\Activate.ps1
+If PowerShell blocks activation:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\cyber_env\Scripts\Activate.ps1
+# 4. Install dependencies
+pip install -r requirements.txt
+# 5. Download the spaCy model
+python -m spacy download en_core_web_sm
+# 6. Install and prepare Ollama
+https://ollama.com
+Then pull Llama 3.2:
+ollama pull llama3.2:3b
