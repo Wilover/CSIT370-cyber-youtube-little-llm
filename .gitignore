@@ -19,13 +19,13 @@ logs/
 # Environment
 .env
 
-# Dataset (optional)
+# Dataset
 data/*.csv
 
 # FAISS / embeddings
 *.index
 *.pkl
 
-# Operating system
+# OS
 .DS_Store
 Thumbs.db
