@@ -1,0 +1,31 @@
+# Virtual environment
+cyber_env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Generated outputs
+outputs/
+vector_store/
+mlruns/
+mlflow.db
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+
+# Dataset (optional)
+data/*.csv
+
+# FAISS / embeddings
+*.index
+*.pkl
+
+# Operating system
+.DS_Store
+Thumbs.db

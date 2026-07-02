@@ -1,0 +1,81 @@
+# Python 3.10.x
+# ======================================================
+
+# ---------- Core ----------
+pandas>=2.2.0
+numpy>=1.26.0
+scipy>=1.12.0
+tqdm>=4.67.0
+
+# ---------- NLP ----------
+spacy>=3.8.0
+langdetect>=1.0.9
+emoji>=2.14.0
+nltk>=3.9
+
+# ---------- Transformers ----------
+transformers>=4.52.0
+torch>=2.7.0
+sentence-transformers>=4.1.0
+accelerate>=1.8.0
+
+# ---------- Topic Modeling ----------
+bertopic>=0.17.0
+umap-learn>=0.5.7
+hdbscan>=0.8.40
+
+# ---------- Vector Search ----------
+faiss-cpu>=1.11.0
+chromadb>=1.0.13
+
+# ---------- Retrieval ----------
+rank-bm25>=0.2.2
+
+# ---------- LangChain ----------
+langchain>=0.3.26
+langchain-core>=0.3.67
+langchain-community>=0.3.26
+langchain-text-splitters>=0.3.8
+langchain-huggingface>=0.3.0
+
+# ---------- LangGraph ----------
+langgraph>=0.5.1
+
+# ---------- Evaluation ----------
+mlflow>=3.1.0
+
+# ---------- Visualization ----------
+matplotlib>=3.10.0
+plotly>=6.2.0
+wordcloud>=1.9.4
+
+# ---------- Dashboard ----------
+streamlit>=1.46.0
+
+# ---------- Utilities ----------
+scikit-learn>=1.7.0
+joblib>=1.5.0
+python-dotenv>=1.1.0
+requests>=2.32.0
+
+# ---------- spaCy model ----------
+# Install separately:
+
+python -m pip install --upgrade pip setuptools wheel
+pip install pandas numpy scipy tqdm scikit-learn requests python-dotenv joblib
+pip install spacy
+pip install click
+python -m spacy download en_core_web_sm
+pip install langdetect emoji nltk wordcloud matplotlib plotly
+pip install torch torchvision torchaudio
+pip install transformers sentence-transformers accelerate
+pip install bertopic umap-learn hdbscan
+pip install faiss-cpu chromadb rank-bm25
+pip install langchain langchain-core langchain-community langchain-text-splitters langchain-huggingface
+pip install langgraph
+pip install mlflow
+pip install streamlit
+
+python -B run.py
+ollama pull llama3.2:3b
+streamlit run src/dashboard.py
