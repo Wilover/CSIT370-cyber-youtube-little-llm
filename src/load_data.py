@@ -111,4 +111,4 @@ for video_id in video_ids:
     df = pd.concat([df, df2], ignore_index=True)
 
 df['video_id'].value_counts()
-df.to_csv("youtube_comments_cs_dataset.csv", index=False, encoding="utf-8-sig")
+df.to_csv("data/youtube_comments_cs_dataset.csv", index=False, encoding="utf-8-sig")
