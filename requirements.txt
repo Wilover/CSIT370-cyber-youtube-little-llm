@@ -76,6 +76,7 @@ pip install langgraph
 pip install mlflow
 pip install streamlit
 pip install faiss-cpu
+pip install langchain-ollama
 
 python -B run.py
 ollama pull llama3.2:3b
