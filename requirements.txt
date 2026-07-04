@@ -75,6 +75,7 @@ pip install langchain langchain-core langchain-community langchain-text-splitter
 pip install langgraph
 pip install mlflow
 pip install streamlit
+pip install faiss-cpu
 
 python -B run.py
 ollama pull llama3.2:3b
